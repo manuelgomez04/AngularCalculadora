@@ -5,18 +5,18 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './calculadora.component.html',
   styleUrl: './calculadora.component.css'
 })
-export class CalculadoraComponent 
-{
+export class CalculadoraComponent {
 
 
 
 
-  digito = 0;
-  operacion = '';
-  numero1 = 0;
-  numero2 = 0;
+
+ 
+  numero1  ='';
+  num = 0;
+  num2 = 0;
+
   resultado = 0;
-  igual = '';
 
   // anadirDigito() {
   //   if (this.operando == "+" || this.operando == "-") {
@@ -25,21 +25,36 @@ export class CalculadoraComponent
 
   // }
 
-  anadirDigito(digito: number) {
-    this.numero1 = this.digito;
+  anadirDigito(digito: string) {
+   
+    this.numero1 += digito;
+   
   }
 
 
 
   anadirResultado(operacion: string) {
-    this.operacion = "="
+    if(operacion === '+') {
+      this.resultado = this.num + this.num2;
+      this.numero1=this.resultado.toString();
+      return this.numero1;
+    } else if(operacion === '-') {
+      this.resultado = this.num - this.num2;
+      this.numero1 = this.resultado.toString();
+      return this.numero1;
+    } else {
+      return this.numero1;
+    }
   }
 
   anadirOperacion(operacion: string) {
-    if (this.operacion == '+') {
-      this.operacion = "+";
+    if (operacion === '+' || operacion === '-') {
+      this.numero1 = '';
+      this.anadirDigito;
+      this.num2 = Number(this.numero1);
     } else {
-      this.operacion = "-";
+      this.anadirDigito;
+      this.num = Number(this.numero1);
     }
   }
 }

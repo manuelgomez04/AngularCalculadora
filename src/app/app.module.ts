@@ -7,6 +7,7 @@ import { CalculadoraComponent } from './components/calculadora/calculadora.compo
 import { MaterialModule } from './material/material.module';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserModule,
     AppRoutingModule,
     MaterialModule,
-    NgbModule
+    NgbModule,
+    FormsModule
   ],
   providers: [
     provideAnimationsAsync()
